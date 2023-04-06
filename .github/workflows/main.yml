@@ -12,14 +12,11 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.8
-    - name: Install requests
-      run: |
-        pip install requests
-    - name: ENV setup
+    - name: Test API
       env: 
         CLIENT_ID: ${{ secrets.CLLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-    - name: Test API
       run: | 
+        pip install requests
         python test.py
