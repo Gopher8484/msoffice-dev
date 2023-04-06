@@ -14,6 +14,8 @@ def get_token():
         'client_secret': os.environ["CLIENT_SECRET"],
         'redirect_uri':'http://localhost:53682/'
     }
+    
+    print(data)
 
     r = requests.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
     token_json = r.json()
