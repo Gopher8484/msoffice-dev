@@ -17,6 +17,8 @@ def get_token():
 
     r = requests.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
     token_json = r.json()
+    print(r.text)
+    print(token_json)
     access_token = token_json['access_token']
 
     return access_token
