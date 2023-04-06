@@ -9,6 +9,8 @@ jobs:
    Task:
     runs-on: ubuntu-22.04
     steps:
+    - name: Checkout
+      uses: actions/checkout@main
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
