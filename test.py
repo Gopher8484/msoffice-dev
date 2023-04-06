@@ -26,21 +26,17 @@ def main(access_token):
     'Authorization':access_token,
     'Content-Type':'application/json'
     }
-    try:
-        requests.get(r'https://graph.microsoft.com/v1.0/me/drive/root', headers=headers)
-        requests.get(r'https://graph.microsoft.com/v1.0/me/drive', headers=headers)
-        requests.get(r'https://graph.microsoft.com/v1.0/drive/root', headers=headers)
-        requests.get(r'https://graph.microsoft.com/v1.0/users', headers=headers)
-        requests.get(r'https://graph.microsoft.com/v1.0/me/messages', headers=headers)    
-        requests.get(r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules', headers=headers)    
-        requests.get(r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta', headers=headers)
-        requests.get(r'https://graph.microsoft.com/v1.0/me/drive/root/children', headers=headers)
-        requests.get(r'https://api.powerbi.com/v1.0/myorg/apps', headers=headers) 
-        requests.get(r'https://graph.microsoft.com/v1.0/me/mailFolders', headers=headers)
-        requests.get(r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories', headers=headers)
-    except:
-        print("error")
-        pass
+    requests.get(r'https://graph.microsoft.com/v1.0/me/drive/root', headers=headers)
+    requests.get(r'https://graph.microsoft.com/v1.0/me/drive', headers=headers)
+    requests.get(r'https://graph.microsoft.com/v1.0/drive/root', headers=headers)
+    requests.get(r'https://graph.microsoft.com/v1.0/users', headers=headers)
+    requests.get(r'https://graph.microsoft.com/v1.0/me/messages', headers=headers)    
+    requests.get(r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules', headers=headers)    
+    requests.get(r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta', headers=headers)
+    requests.get(r'https://graph.microsoft.com/v1.0/me/drive/root/children', headers=headers)
+    requests.get(r'https://api.powerbi.com/v1.0/myorg/apps', headers=headers) 
+    requests.get(r'https://graph.microsoft.com/v1.0/me/mailFolders', headers=headers)
+    requests.get(r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories', headers=headers)
 
 token = get_token()
 
