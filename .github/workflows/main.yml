@@ -1,6 +1,7 @@
 name: Test MS Graph API
 
-on: 
+on:
+  workflow_dispatch:
   schedule:
     - cron: '30 * * * *'
    
