@@ -41,12 +41,18 @@ def main(access_token):
     'Content-Type':'application/json'
     }
 
+    readme = []
     for endpoint in endpoints:
-        r = requests.get(endpoint, headers=headers)
-        print(r.status_code)
-        r.raise_for_status()
-
-token = get_token()
-
-for i in range(5):
-    main(token)
+        try:
+            r = requests.get(endpoint, headers=headers)
+            print(r.status_code, endpoint)
+            r.raise_for_status()
+            
+            readme.append(f"- [X] {endpoint}")
+        except:
+            readme.append(f"- [ ] {endpoint}")
+    
+    with open("README.md", "w") as f:
+        f.write("\n".join(readme))
+            
+main(get_token())
