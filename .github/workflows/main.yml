@@ -23,3 +23,10 @@ jobs:
       run: | 
         pip install requests
         python test.py
+    - name: Commit
+      run: |
+        git config --global user.email ${{ secrets.USER_EMAIL }}
+        git config --global user.name ${{ secrets.USER_NAME }}
+        git add README.md
+        git commit -m "Update README"
+        git push
