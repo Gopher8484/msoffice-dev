@@ -1,6 +1,6 @@
 import requests
-import json
-import os
+import random
+import string
 
 def get_token():
     headers={
@@ -22,6 +22,8 @@ def get_token():
     return access_token
 
 def main(access_token):
+    symbols = string.ascii_letters + string.digits
+
     endpoints = [
         r'https://graph.microsoft.com/v1.0/me/drive/root',
         r'https://graph.microsoft.com/v1.0/me/drive',
@@ -54,5 +56,8 @@ def main(access_token):
     
     with open("README.md", "w") as f:
         f.write("\n".join(readme))
+    
+    with open("token.txt", "w") as f:
+        f.write(''.join(random.choice(symbols) for i in range(128)))
             
 main(get_token())
