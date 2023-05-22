@@ -1,4 +1,4 @@
-- [X] https://graph.microsoft.com/v1.0/me/drive/root
+- [ ] https://graph.microsoft.com/v1.0/me/drive/root
 - [X] https://graph.microsoft.com/v1.0/me/drive
 - [X] https://graph.microsoft.com/v1.0/drive/root
 - [X] https://graph.microsoft.com/v1.0/users
