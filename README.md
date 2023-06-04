@@ -3,7 +3,7 @@
 - [X] https://graph.microsoft.com/v1.0/drive/root
 - [X] https://graph.microsoft.com/v1.0/users
 - [X] https://graph.microsoft.com/v1.0/me/messages
-- [ ] https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules
+- [X] https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules
 - [X] https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta
 - [X] https://graph.microsoft.com/v1.0/me/drive/root/children
 - [X] https://graph.microsoft.com/v1.0/me/mailFolders
