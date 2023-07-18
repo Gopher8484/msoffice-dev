@@ -4,11 +4,11 @@ import random
 import string
 
 def get_token():
-    headers={
+    headers = {
         'Content-Type':'application/x-www-form-urlencoded'
     }
     
-    data={
+    data = {
         'grant_type': 'refresh_token',
         'refresh_token': os.environ["REFRESH_TOKEN"],
         'client_id': os.environ["CLIENT_ID"],
@@ -17,14 +17,12 @@ def get_token():
     }
 
     r = requests.post('https://login.microsoftonline.com/common/oauth2/v2.0/token', data=data, headers=headers)
-    token_json = r.json()
-    access_token = token_json['access_token']
+    r.raise_for_status()
+    access_token = r.json()['access_token']
 
     return access_token
 
 def main(access_token):
-    symbols = string.ascii_letters + string.digits
-
     endpoints = [
         r'https://graph.microsoft.com/v1.0/me/drive/root',
         r'https://graph.microsoft.com/v1.0/me/drive',
@@ -34,14 +32,14 @@ def main(access_token):
         r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
         r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta',
         r'https://graph.microsoft.com/v1.0/me/drive/root/children',
-        # r'https://api.powerbi.com/v1.0/myorg/apps',
+        r'https://api.powerbi.com/v1.0/myorg/apps',
         r'https://graph.microsoft.com/v1.0/me/mailFolders',
         r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'
     ]
 
-    headers={
-    'Authorization':access_token,
-    'Content-Type':'application/json'
+    headers = {
+        'Authorization':access_token,
+        'Content-Type':'application/json'
     }
 
     readme = []
@@ -59,6 +57,6 @@ def main(access_token):
         f.write("\n".join(readme))
     
     with open("token.txt", "w") as f:
-        f.write(''.join(random.choice(symbols) for i in range(128)))
+        f.write(''.join(random.choice(string.ascii_letters + string.digits) for _ in range(128)))
             
 main(get_token())
