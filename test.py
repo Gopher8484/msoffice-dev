@@ -32,7 +32,7 @@ def main(access_token):
         r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
         r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta',
         r'https://graph.microsoft.com/v1.0/me/drive/root/children',
-        r'https://api.powerbi.com/v1.0/myorg/apps',
+        # r'https://api.powerbi.com/v1.0/myorg/apps',
         r'https://graph.microsoft.com/v1.0/me/mailFolders',
         r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'
     ]
