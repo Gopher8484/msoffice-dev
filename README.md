@@ -7,4 +7,4 @@
 - [X] https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta
 - [X] https://graph.microsoft.com/v1.0/me/drive/root/children
 - [X] https://graph.microsoft.com/v1.0/me/mailFolders
-- [ ] https://graph.microsoft.com/v1.0/me/outlook/masterCategories
+- [X] https://graph.microsoft.com/v1.0/me/outlook/masterCategories
