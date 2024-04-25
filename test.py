@@ -4,26 +4,30 @@ import random
 import string
 
 def get_token():
+    with open("token.txt", "r") as f:
+        refresh_token = f.read()
     headers = {
         'Content-Type':'application/x-www-form-urlencoded'
     }
     
     data = {
         'grant_type': 'refresh_token',
-        'refresh_token': os.environ["REFRESH_TOKEN"],
+        'refresh_token': refresh_token
         'client_id': os.environ["CLIENT_ID"],
         'client_secret': os.environ["CLIENT_SECRET"],
-        'redirect_uri':'http://localhost:53682/'
+        'redirect_uri':'http://localhost'
     }
 
     r = requests.post('https://login.microsoftonline.com/common/oauth2/v2.0/token', data=data, headers=headers)
     print(r.text)
     r.raise_for_status()
-    access_token = r.json()['access_token']
+    r_json = r.json()
+    access_token = r_json['access_token']
+    refresh_token = r_json['refresh_token']
 
-    return access_token
+    return access_token, refresh_token
 
-def main(access_token):
+def main(access_token, refresh_token):
     endpoints = [
         r'https://graph.microsoft.com/v1.0/me/drive/root',
         r'https://graph.microsoft.com/v1.0/me/drive',
@@ -58,6 +62,6 @@ def main(access_token):
         f.write("\n".join(readme))
     
     with open("token.txt", "w") as f:
-        f.write(''.join(random.choice(string.ascii_letters + string.digits) for _ in range(128)))
+        f.write(refresh_token)
             
-main(get_token())
+main(*get_token())
