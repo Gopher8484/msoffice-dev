@@ -52,6 +52,7 @@ def main(access_token, refresh_token):
         try:
             r = requests.get(endpoint, headers=headers)
             print(r.status_code, endpoint)
+            print(r.json())
             r.raise_for_status()
             
             readme.append(f"- [X] {endpoint}")
