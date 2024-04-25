@@ -21,7 +21,6 @@ jobs:
       env: 
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
       run: | 
         pip install requests
         python test.py
